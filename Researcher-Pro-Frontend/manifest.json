@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Research Assistant",
+    "name": "ResearcherPro",
     "version": "1.0",
-    "description": "AI-powered Research Assistant",
+    "description": "Your Own Personal Research Assistant",
     "permissions": [
         "activeTab",
         "storage",
@@ -10,7 +10,7 @@
         "scripting"
     ],
     "action":{
-        "default_title":"Research Assistant",
+        "default_title":"ResearcherPro",
         "default_icon":"Icon.png"
     },
     "side_panel":{
