@@ -10,11 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function summarizeText(){
     try{
-        const [tab] = await chrome.tabs.query({ active:true, currentWindow: true});
-        const  [{result}] = await chrome.scripting.executeScript({
-            target: {tabId: tab.id},
-            function: () => window.getSelection().toString()
-        });
+        //const [tab] = await chrome.tabs.query({ active:true, currentWindow: true});
+        //const  [{result}] = await chrome.scripting.executeScript({
+        //    target: {tabId: tab.id},
+        //    function: () => window.getSelection().toString()
+        // });
+
+        const result = document.getElementById('contents').value; //Allow to Copy and Paste Text
 
         if(!result){
             showResult('Please select some text first');
