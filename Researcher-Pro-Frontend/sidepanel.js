@@ -13,19 +13,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function mlaCiteText(){
-
+    geminiCommunicator('MLA Citation');
 }
 
 async function apaCiteText(){
-
+    geminiCommunicator('APA Citation');
 }
 
 async function ieeeCiteText(){
-
+    geminiCommunicator('IEEE Citation');
 }
 
 async function chicagoCiteText(){
- 
+    geminiCommunicator('Chicago-Style Citation');
 }
 
 async function summarizeText(){
