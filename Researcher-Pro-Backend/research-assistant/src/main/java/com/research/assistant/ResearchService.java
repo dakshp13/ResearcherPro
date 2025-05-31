@@ -53,7 +53,8 @@ public class ResearchService {
             prompt.append("Based on the following content: suggest related" +
                     "topics and further reading. Format the response with " +
                     "clear heading and billet points:\n\n");
-        } else {
+        }
+        else {
             throw new IllegalArgumentException("Unknown Operation: " + request.getOperation());
         }
         prompt.append(request.getContent());
