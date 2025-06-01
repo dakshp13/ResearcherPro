@@ -5,10 +5,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     document.getElementById('summarizeBtn').addEventListener('click', summarizeText);
+    document.getElementById('mlaBtn').addEventListener('click', mlaCiteText);
+    document.getElementById('apaBtn').addEventListener('click', apaCiteText);
+    document.getElementById('ieeeBtn').addEventListener('click', ieeeCiteText);
+    document.getElementById('chicagoBtn').addEventListener('click', chicagoCiteText);
     document.getElementById('saveNotesBtn').addEventListener('click', saveNotes);
 });
 
+async function mlaCiteText(){
+    geminiCommunicator('MLA Citation');
+}
+
+async function apaCiteText(){
+    geminiCommunicator('APA Citation');
+}
+
+async function ieeeCiteText(){
+    geminiCommunicator('IEEE Citation');
+}
+
+async function chicagoCiteText(){
+    geminiCommunicator('Chicago-Style Citation');
+}
+
 async function summarizeText(){
+   geminiCommunicator('summarize');
+}
+
+async function geminiCommunicator(operation){
     try{
         //const [tab] = await chrome.tabs.query({ active:true, currentWindow: true});
         //const  [{result}] = await chrome.scripting.executeScript({
@@ -26,7 +50,7 @@ async function summarizeText(){
         const response = await fetch('http://localhost:8080/api/research/process', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify({ content: result, operation: 'summarize'})
+            body: JSON.stringify({ content: result, operation: operation})
         });
 
         if(!response.ok){
@@ -39,6 +63,7 @@ async function summarizeText(){
     } catch (error) {
         showResult('Error: ' + error.message);
     }
+
 }
 
 async function saveNotes(){

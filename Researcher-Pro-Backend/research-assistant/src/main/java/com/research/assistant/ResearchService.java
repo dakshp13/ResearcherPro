@@ -53,7 +53,12 @@ public class ResearchService {
             prompt.append("Based on the following content: suggest related" +
                     "topics and further reading. Format the response with " +
                     "clear heading and billet points:\n\n");
-        } else {
+        } else if (request.getOperation().equals("IEEE Citation") || request.getOperation().equals("APA Citation")
+            || request.getOperation().equals("MLA Citation") || request.getOperation().equals("Chicago-Style Citation")) {
+            prompt.append("If " + request.getContent() + " looks like a valid citable link then cite it using this" +
+                    "format: " + request.getOperation() + ", otherwise just state that its not a citable link. Once again here is the link:\n\n");
+        }
+        else {
             throw new IllegalArgumentException("Unknown Operation: " + request.getOperation());
         }
         prompt.append(request.getContent());
