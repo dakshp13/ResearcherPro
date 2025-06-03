@@ -44,17 +44,76 @@ body {
     flex-wrap: wrap;
 }
 
-button {
+#summarizeBtn {
     padding: 8px 16px;
-    background-color: #1a73e8;
-    color: white;
-    border: none;
+    background-color: #03bafc;
+    color: black;
+    font-weight: bold;
     border-radius: 4px;
     cursor: pointer;
+   
 }
 
-button:hover {
-    background-color: #1557b0;
+#summarizeBtn:hover {
+     background-color: #037ffc;
+}
+
+
+
+#mlaBtn {
+    padding: 8px 16px;
+    background-color: #F08080;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+   
+}
+
+#mlaBtn:hover {
+     background-color: #8B0000;
+}
+
+#ieeeBtn {
+    padding: 8px 16px;
+    background-color: #fca103;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+   
+}
+
+#ieeeBtn:hover {
+     background-color: #CC5500;
+}
+
+#apaBtn {
+    padding: 8px 16px;
+    background-color: #6ffc03;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+   
+}
+
+#apaBtn:hover {
+     background-color: #006400;
+}
+
+#chicagoBtn {
+    padding: 8px 16px;
+    background-color: #E0FFFF;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+   
+}
+
+#chicagoBtn:hover {
+     background-color: #008B8B;
 }
 
 .notes textarea {
