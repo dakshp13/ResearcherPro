@@ -8,20 +8,32 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    
 }
 
 .header{
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    border-bottom: 3px solid #1a73e8;
+    
 }
 
 .header h2 {
-    margin: 0px;
+    padding-top: 0px;
+    padding-bottom: 3px;
     color: #1a73e8;
+    font-style: italic;
 }
 
-.action {
+.header h3 {
+    padding-bottom: 3px;
+    color: black;
+    font-style: italic;
+}
+
+.actions {
     display: flex;
+    flex-direction: column;
     gap: 10px;
     flex-wrap: wrap;
 }
@@ -78,3 +90,5 @@ button:hover {
     margin-bottom: 10px;
     line-height: 1.5;
 }
+
+
