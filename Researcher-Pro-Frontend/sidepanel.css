@@ -110,29 +110,33 @@ body {
     border-radius: 4px;
     cursor: pointer;
    
+   
 }
 
 #chicagoBtn:hover {
      background-color: #008B8B;
 }
 
+
+
 .notes textarea {
     width: 100%;
     height: 200px;
     padding: 10px;
-    margin-right: 2px;
-    border: 1px solid #ddd;
+    margin-right: auto;
+    border: 1px solid black;
     border-radius: 4px;
     resize: vertical;
     margin-bottom: 10px;
 }
 
+
 .contents textarea {
     width: 100%;
     height: 200px;
     padding: 10px;
-    margin-right: 2px;
-    border: 1px solid #ddd;
+    margin-right: auto;
+    border: 1px solid black;
     border-radius: 4px;
     resize: vertical;
     margin-bottom: 10px;
@@ -170,4 +174,20 @@ body {
     font-size: 50px;
 }
 
+.resultsHeading{
+    display: flex;
+    align-items: center;        
+    justify-content: center;    
+    gap: 15px;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    border-bottom: 3px solid black;
+    
+}
+
+#robotIcon {
+    margin-right: 0px;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
 
