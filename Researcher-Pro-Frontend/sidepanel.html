@@ -3,32 +3,47 @@
 <head>
     <title>ResearcherPro</title>
     <link rel="stylesheet" href="sidepanel.css">
+    <!--<script src="https://kit.fontawesome.com/494383b1c5.js" crossorigin="anonymous"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h2 style="text-align: center;">ResearcherPro</h2>
-            <h3 style="text-align: center;">Your Personal AI-Powered Research Assistant!</h3>
+            <i id="micIcon" class="fa-solid fa-microscope" style="color: #000000;"></i>
+            <h2 style="text-align: center;">ResearcherPro<br>Your Personal AI-Powered Research Assistant!</h2>
+            <i id="textIcon" class="fa-solid fa-file-lines" style="color: #000000;"></i>
         </div>
         <div style="text-align: center;" class="actions">
             <h3>Summarize Anything Below!</h3>
-            <button id="summarizeBtn">Summarize</button>
+            <button id="summarizeDetailedBtn">Summarize: A Very Detailed Summary</button>
+            <button id="summarizeBriefBtn">Summarize: A Very Brief Summary</button>
             <br>
             <h3>Cite Your Work!</h3>
-            <button id="mlaBtn">MLA</button>
-            <button id="ieeeBtn">IEEE</button>
-            <button id="apaBtn">APA</button>
-            <button id="chicagoBtn">Chicago</button>
-        </div>
+            <button id="mlaBtn">MLA (Modern Language Association)</button>
+            <button id="ieeeBtn">IEEE (Institute of Electrical and Electronics Engineers)</button>
+            <button id="apaBtn">APA (American Psychological Association)</button>
+            <button id="chicagoBtn">Chicago-Style</button>
+        </div> 
         <div class="contents">
-            <h3 style="text-align: center;">Add Content Here</h3>
+            <div class="contentsHeading">
+                <h3 style="text-align: center;">Add Content Here</h3>
+                <i id="arrowBelowIcon" class="fa-regular fa-circle-down"></i>
+            </div>
             <textarea id="contents" placeholder="Add Content to be Summarized or Cited Here"></textarea>
         </div>
-        <h3 style="text-align: center;">Your Assistant's Response</h3>
-        <hr style="border: 0; border-top: 1px solid blue; margin: 1px auto 1px auto; width: 100%;">
-        <div id="results"></div>
+        <div class="results">
+            <div class="resultsHeading">
+                <h3 style="text-align: center;">Your Assistant's Response</h3>
+                <i id="robotIcon" class="fa-solid fa-robot" style="color: #000000;"></i>
+            </div>
+            <div id="results"></div>
+            <div class="resultsFooter"></div>
+        </div>
         <div class="notes">
-            <h3 style="text-align: center;">Research Notes</h3>
+            <div class="notesHeading">
+                <h3 style="text-align: center;">Research Notes</h3>
+                <i id="pencilIcon" class="fa-solid fa-pencil" style="color: #000000;"></i>
+            </div>
             <textarea id="notes" placeholder="Take notes here" ></textarea>
             <div style="text-align: center;">
                 <button id="saveNotesBtn">Save Notes</button>

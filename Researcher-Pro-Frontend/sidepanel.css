@@ -2,58 +2,169 @@ body {
     margin: 0;
     padding: 15px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(#f0f0f0, #ffffff);
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 20px;    
+
 }
 
 .header{
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;        
+    justify-content: center;    
+    gap: 20px;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    border-bottom: 3px solid black;
+    
 }
 
 .header h2 {
-    margin: 0px;
-    color: #1a73e8;
+    padding-top: 0px;
+    padding-bottom: 3px;
+    color: black;
+    font-style: italic;
+    font-size: medium;
 }
 
-.action {
+.header h3 {
+    padding-bottom: 3px;
+    color: black;
+    font-style: italic;
+}
+
+.actions {
     display: flex;
+    flex-direction: column;
     gap: 10px;
     flex-wrap: wrap;
 }
 
-button {
+
+#summarizeDetailedBtn {
     padding: 8px 16px;
-    background-color: #1a73e8;
-    color: white;
-    border: none;
+    background-color: #03bafc;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+   
+}
+
+#summarizeDetailedBtn:hover {
+     background-color: #037ffc;
+}
+
+#summarizeBriefBtn {
+    padding: 8px 16px;
+    background-color: #03bafc;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+   
+}
+
+#summarizeBriefBtn:hover {
+     background-color: #037ffc;
+}
+
+
+
+#mlaBtn {
+    padding: 8px 16px;
+    background-color: #F08080;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+   
+}
+
+#mlaBtn:hover {
+     background-color: #8B0000;
+}
+
+#ieeeBtn {
+    padding: 8px 16px;
+    background-color: #fca103;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+   
+}
+
+#ieeeBtn:hover {
+     background-color: #CC5500;
+}
+
+#apaBtn {
+    padding: 8px 16px;
+    background-color: #6ffc03;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+   
+}
+
+#apaBtn:hover {
+     background-color: #006400;
+}
+
+#chicagoBtn {
+    padding: 8px 16px;
+    background-color: #E0FFFF;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+   
+   
+}
+
+#chicagoBtn:hover {
+     background-color: #008B8B;
+}
+
+#saveNotesBtn {
+    padding: 8px 16px;
+    background-color: #F5F5DC;
+    color: black;
+    font-weight: bold;
     border-radius: 4px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #1557b0;
+#saveNotesBtn:hover {
+    background-color: #D2B48C;
 }
 
+
+
 .notes textarea {
-    width: 100%;
+    width: 95%;
     height: 200px;
     padding: 10px;
-    border: 1px solid #ddd;
+    margin-right: auto;
+    border: 1px solid black;
     border-radius: 4px;
     resize: vertical;
     margin-bottom: 10px;
 }
 
-.contents textarea {
-    width: 100%;
+
+.contents textarea {  
+    width: 95%;
     height: 200px;
     padding: 10px;
-    border: 1px solid #ddd;
+    margin-right: auto;
+    border: 1px solid black;
     border-radius: 4px;
     resize: vertical;
     margin-bottom: 10px;
@@ -61,9 +172,11 @@ button:hover {
 
 #results {
     padding: 10px;
-    background-color: #f8f9fa;
+    background-color: white;
     border-radius: 4px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
 }
 
 .result-item {
@@ -78,3 +191,71 @@ button:hover {
     margin-bottom: 10px;
     line-height: 1.5;
 }
+
+#micIcon {
+    margin-left: 0px;
+    margin-top: 0px;
+    font-size: 50px;
+}
+
+#textIcon {
+    margin-right: 0px;
+    margin-top: 0px;
+    font-size: 50px;
+}
+
+#pencilIcon {
+    margin-right: 0px;
+    margin-top: 0px;
+    font-size: 25px;
+}
+
+#arrowBelowIcon {
+    margin-right: 0px;
+    margin-top: 0px;
+    font-size: 25px;
+}
+
+.resultsHeading{
+    display: flex;
+    align-items: center;        
+    justify-content: center;    
+    gap: 15px;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    border-bottom: 3px solid black;
+    
+}
+
+.notesHeading{
+    display: flex;
+    align-items: center;        
+    justify-content: center;    
+    gap: 15px;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    
+}
+
+.contentsHeading{
+    display: flex;
+    align-items: center;        
+    justify-content: center;    
+    gap: 15px;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    
+}
+
+.resultsFooter{
+    border-top: 3px solid black;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+#robotIcon {
+    margin-right: 0px;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
