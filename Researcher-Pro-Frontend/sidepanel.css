@@ -190,6 +190,18 @@ body {
     font-size: 50px;
 }
 
+#pencilIcon {
+    margin-right: 0px;
+    margin-top: 0px;
+    font-size: 25px;
+}
+
+#arrowBelowIcon {
+    margin-right: 0px;
+    margin-top: 0px;
+    font-size: 25px;
+}
+
 .resultsHeading{
     display: flex;
     align-items: center;        
@@ -198,6 +210,26 @@ body {
     padding-top: 0px;
     padding-bottom: 1px;
     border-bottom: 3px solid black;
+    
+}
+
+.notesHeading{
+    display: flex;
+    align-items: center;        
+    justify-content: center;    
+    gap: 15px;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    
+}
+
+.contentsHeading{
+    display: flex;
+    align-items: center;        
+    justify-content: center;    
+    gap: 15px;
+    padding-top: 0px;
+    padding-bottom: 1px;
     
 }
 
