@@ -46,9 +46,10 @@ public class ResearchService {
 
     private String buildPrompt(ResearchRequest request){
         StringBuilder prompt = new StringBuilder();
-        if(request.getOperation().equals("summarize")){
+        if(request.getOperation().equals("summarize:detailed")){
             prompt.append("Provide a clear and concise summary of the " +
-                    "following text in a few sentences:\n\n");
+                    "following text in a lot of detail. If there are any fundamental concepts then explain them well. Ensure one or two paragraphs" +
+                    "of well written summary. Also make sure its clear for the reader to follow along:\n\n");
         } else if (request.getOperation().equals("suggest")) {
             prompt.append("Based on the following content: suggest related" +
                     "topics and further reading. Format the response with " +
