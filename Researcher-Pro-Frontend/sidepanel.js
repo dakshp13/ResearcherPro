@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('notes').value = result.researchNotes;
         }
     });
-    document.getElementById('summarizeBtn').addEventListener('click', summarizeText);
+    document.getElementById('summarizeDetailedBtn').addEventListener('click', summarizeDetailedText);
     document.getElementById('mlaBtn').addEventListener('click', mlaCiteText);
     document.getElementById('apaBtn').addEventListener('click', apaCiteText);
     document.getElementById('ieeeBtn').addEventListener('click', ieeeCiteText);
@@ -28,8 +28,8 @@ async function chicagoCiteText(){
     geminiCommunicator('Chicago-Style Citation');
 }
 
-async function summarizeText(){
-   geminiCommunicator('summarize');
+async function summarizeDetailedText(){
+   geminiCommunicator('summarize:detailed');
 }
 
 async function geminiCommunicator(operation){
