@@ -8,8 +8,8 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    
+    gap: 20px;    
+
 }
 
 .header{
@@ -43,6 +43,7 @@ body {
     gap: 10px;
     flex-wrap: wrap;
 }
+
 
 #summarizeBtn {
     padding: 8px 16px;
@@ -117,10 +118,23 @@ body {
      background-color: #008B8B;
 }
 
+#saveNotesBtn {
+    padding: 8px 16px;
+    background-color: #F5F5DC;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#saveNotesBtn:hover {
+    background-color: #D2B48C;
+}
+
 
 
 .notes textarea {
-    width: 100%;
+    width: 95%;
     height: 200px;
     padding: 10px;
     margin-right: auto;
@@ -131,8 +145,8 @@ body {
 }
 
 
-.contents textarea {
-    width: 100%;
+.contents textarea {  
+    width: 95%;
     height: 200px;
     padding: 10px;
     margin-right: auto;
@@ -144,9 +158,11 @@ body {
 
 #results {
     padding: 10px;
-    background-color: #f8f9fa;
+    background-color: white;
     border-radius: 4px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
 }
 
 .result-item {
@@ -183,6 +199,12 @@ body {
     padding-bottom: 1px;
     border-bottom: 3px solid black;
     
+}
+
+.resultsFooter{
+    border-top: 3px solid black;
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
 
 #robotIcon {
