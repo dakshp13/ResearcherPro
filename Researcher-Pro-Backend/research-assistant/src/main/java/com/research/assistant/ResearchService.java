@@ -44,7 +44,7 @@ public class ResearchService {
 
     }
 
-    private String buildPrompt(ResearchRequest request){
+    public String buildPrompt(ResearchRequest request){
         StringBuilder prompt = new StringBuilder();
         if(request.getOperation().equals("summarize:detailed")) {
             prompt.append("Provide a clear and full summary of the " +
