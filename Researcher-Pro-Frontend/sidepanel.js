@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     document.getElementById('summarizeDetailedBtn').addEventListener('click', summarizeDetailedText);
+    document.getElementById('summarizeBriefBtn').addEventListener('click', summarizeBriefText);
     document.getElementById('mlaBtn').addEventListener('click', mlaCiteText);
     document.getElementById('apaBtn').addEventListener('click', apaCiteText);
     document.getElementById('ieeeBtn').addEventListener('click', ieeeCiteText);
@@ -30,6 +31,10 @@ async function chicagoCiteText(){
 
 async function summarizeDetailedText(){
    geminiCommunicator('summarize:detailed');
+}
+
+async function summarizeBriefText(){
+    geminiCommunicator('summarize:brief');
 }
 
 async function geminiCommunicator(operation){
