@@ -46,9 +46,13 @@ public class ResearchService {
 
     private String buildPrompt(ResearchRequest request){
         StringBuilder prompt = new StringBuilder();
-        if(request.getOperation().equals("summarize:detailed")){
-            prompt.append("Provide a clear and concise summary of the " +
+        if(request.getOperation().equals("summarize:detailed")) {
+            prompt.append("Provide a clear and full summary of the " +
                     "following text in a lot of detail. If there are any fundamental concepts then explain them well. Ensure one or two paragraphs" +
+                    "of well written summary. Also make sure its clear for the reader to follow along:\n\n");
+        } else if (request.getOperation().equals("summarize:brief")) {
+            prompt.append("Provide a brief and concise summary of the " +
+                    "following text. If there are any fundamental concepts then explain them in short. Ensure only a few sentences" +
                     "of well written summary. Also make sure its clear for the reader to follow along:\n\n");
         } else if (request.getOperation().equals("suggest")) {
             prompt.append("Based on the following content: suggest related" +
