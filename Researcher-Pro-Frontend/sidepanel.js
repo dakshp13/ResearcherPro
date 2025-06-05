@@ -59,7 +59,7 @@ async function geminiCommunicator(operation){
         });
 
         if(!response.ok){
-            throw new Error(`API Error: ${response.status}`);
+            throw new Error(`Hold on your going to fast for me to think: Wait a bit and then try again please ...`);
         }
 
         const text = await response.text();
