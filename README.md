@@ -35,8 +35,3 @@
 
 ---
 
-## 📸 Screenshots
-
-![The UI and Functions](assets/ReadMeAsset.png)
-
----
