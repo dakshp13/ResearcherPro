@@ -37,6 +37,6 @@
 
 ## 📸 Screenshots
 
-> _Coming soon!_ (Include screenshots here showing key features like the popup, note editor, and citation generation.)
+![The UI and Functions](assets/ReadMeAsset.png)
 
 ---
