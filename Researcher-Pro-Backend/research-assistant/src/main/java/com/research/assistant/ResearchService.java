@@ -70,7 +70,7 @@ public class ResearchService {
         return prompt.toString();
     }
 
-    private String extractTextFromResponse(String response) {
+    public String extractTextFromResponse(String response) {
         try{
             GeminiResponse geminiResponse = objectMapper.readValue(response, GeminiResponse.class);
             if(geminiResponse.getCandidates() != null && !geminiResponse.getCandidates().isEmpty()){
