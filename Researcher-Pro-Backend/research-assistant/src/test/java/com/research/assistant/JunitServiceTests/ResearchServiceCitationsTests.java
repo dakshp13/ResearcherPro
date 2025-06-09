@@ -8,8 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.web.reactive.function.client.WebClient;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ResearchServiceCitationsTests {
@@ -121,6 +121,7 @@ public class ResearchServiceCitationsTests {
         String expectedResponse = "National Geographic. \"Global Warming Effects.\" *National Geographic*, www.nationalgeographic.com/environment/article/global-warming-effects. Accessed 30 Oct. 2023.\n";
         assertEquals(expectedResponse, actualResponse);
     }
+
 
 
 
