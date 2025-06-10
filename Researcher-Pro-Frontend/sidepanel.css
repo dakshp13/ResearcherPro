@@ -44,6 +44,15 @@ body {
     flex-wrap: wrap;
 }
 
+#mainInfo {
+  font-style: italic;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+ 
+}
+
+
 
 #summarizeDetailedBtn {
     padding: 8px 16px;
@@ -130,6 +139,21 @@ body {
 
 #chicagoBtn:hover {
      background-color: #008B8B;
+}
+
+#suggestionsBtn {
+    padding: 8px 16px;
+    background-color: #FFFFE0;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+   
+   
+}
+
+#suggestionsBtn:hover {
+     background-color: #B8860B;
 }
 
 #saveNotesBtn {
