@@ -38,7 +38,7 @@ public class ResearchServiceSuggestionsTests {
         String actualPrompt = researchService.buildPrompt(researchRequest);
         String expectedPrompt = "Based on the following content: suggest related" +
                 "topics and further reading. Format the response with " +
-                "clear heading and billet points:\n\n";
+                "clear heading and bullet points:\n\n";
         expectedPrompt += "This is some content for extra suggestions";
         assertEquals(expectedPrompt, actualPrompt);
     }
