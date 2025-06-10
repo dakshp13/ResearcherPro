@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('notes').value = result.researchNotes;
         }
     });
+    document.getElementById('suggestionsBtn').addEventListener('click', suggest);
     document.getElementById('summarizeDetailedBtn').addEventListener('click', summarizeDetailedText);
     document.getElementById('summarizeBriefBtn').addEventListener('click', summarizeBriefText);
     document.getElementById('mlaBtn').addEventListener('click', mlaCiteText);
@@ -35,6 +36,10 @@ async function summarizeDetailedText(){
 
 async function summarizeBriefText(){
     geminiCommunicator('summarize:brief');
+}
+
+async function suggest() {
+    geminiCommunicator('suggest');
 }
 
 async function geminiCommunicator(operation){
