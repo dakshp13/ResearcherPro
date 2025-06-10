@@ -34,4 +34,15 @@
 - **Chrome Storage API**
 
 ---
+---
+---
+### New v1.1.0 Feature 🆕🚀 ***
+## Suggestions Options: *** 
+
+- **Add any text or cite and click the new option**
+- **Generation of various suggested and related readings**
+- **Plus exactly where to find them**
+
+---
+
 
