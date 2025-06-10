@@ -57,7 +57,7 @@ public class ResearchService {
         } else if (request.getOperation().equals("suggest")) {
             prompt.append("Based on the following content: suggest related" +
                     "topics and further reading. Format the response with " +
-                    "clear heading and billet points:\n\n");
+                    "clear heading and bullet points:\n\n");
         } else if (request.getOperation().equals("IEEE Citation") || request.getOperation().equals("APA Citation")
             || request.getOperation().equals("MLA Citation") || request.getOperation().equals("Chicago-Style Citation")) {
             prompt.append("If " + request.getContent() + " looks like a valid citable link then cite it using this" +
