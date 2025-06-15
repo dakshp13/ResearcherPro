@@ -2,8 +2,8 @@ package com.research.assistant.JunitServiceTests;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.research.assistant.ResearchRequest;
-import com.research.assistant.ResearchService;
+import com.research.assistant.Model.ResearchRequest;
+import com.research.assistant.Services.ResearchService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

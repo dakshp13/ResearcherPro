@@ -1,5 +1,7 @@
-package com.research.assistant;
+package com.research.assistant.Controllers;
 
+import com.research.assistant.Model.ResearchRequest;
+import com.research.assistant.Services.ResearchService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

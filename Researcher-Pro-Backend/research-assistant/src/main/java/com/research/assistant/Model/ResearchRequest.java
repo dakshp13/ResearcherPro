@@ -1,4 +1,4 @@
-package com.research.assistant;
+package com.research.assistant.Model;
 
 import lombok.Data;
 

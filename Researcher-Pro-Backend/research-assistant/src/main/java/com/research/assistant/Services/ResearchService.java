@@ -1,8 +1,10 @@
-package com.research.assistant;
+package com.research.assistant.Services;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.research.assistant.GeminiResponse;
 import com.research.assistant.Model.ResearchAction;
+import com.research.assistant.Model.ResearchRequest;
 import com.research.assistant.Repositories.ResearchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
