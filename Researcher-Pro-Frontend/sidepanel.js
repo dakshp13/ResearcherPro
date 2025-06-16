@@ -56,6 +56,9 @@ async function geminiCommunicator(operation){
             showResult('Please select some text first');
             return;
         }
+        else{
+            showResult('Thinking ...');
+        }
 
         const response = await fetch('http://localhost:8080/api/research/process', {
             method: 'POST',
