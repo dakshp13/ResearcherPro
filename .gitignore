@@ -46,3 +46,5 @@ application.yml
 # Optional: target folder (compiled classes)
 target/
 
+# ENV
+.env
