@@ -67,7 +67,7 @@ public class ResearchService {
 
 
         if(researchAction.isPresent()){
-            updateMongoDbResearchAction(researchAction.get());
+            updateMongoDbResearchAction(researchAction.get(), request);
         }
         else{
             return "Error in API Call: Broken Please Fix!";
@@ -125,12 +125,13 @@ public class ResearchService {
 
     }
 
-    private void updateMongoDbResearchAction(ResearchAction inputResearchAction){
+    private void updateMongoDbResearchAction(ResearchAction inputResearchAction, ResearchRequest inputResearchRequest){
        inputResearchAction.setTotalCount(inputResearchAction.getTotalCount()+1);
        LocalDate today = LocalDate.now();
        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
        String formattedDate = today.format(formatter);
        inputResearchAction.setLastTimeAccessed(formattedDate);
+       inputResearchAction.addToResearchRequestList(inputResearchRequest);
        researchActionRepository.save(inputResearchAction);
     }
 
