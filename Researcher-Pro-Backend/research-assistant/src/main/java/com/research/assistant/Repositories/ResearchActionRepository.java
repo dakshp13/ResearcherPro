@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface ResearchRepository extends MongoRepository<ResearchAction, ObjectId> {
+public interface ResearchActionRepository extends MongoRepository<ResearchAction, ObjectId> {
     Optional<ResearchAction> findFirstByAction(String action);
 }

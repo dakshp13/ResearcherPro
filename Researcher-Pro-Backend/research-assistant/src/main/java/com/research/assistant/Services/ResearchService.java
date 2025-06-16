@@ -5,7 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.research.assistant.GeminiResponse;
 import com.research.assistant.Model.ResearchAction;
 import com.research.assistant.Model.ResearchRequest;
-import com.research.assistant.Repositories.ResearchRepository;
+import com.research.assistant.Repositories.ResearchActionRepository;
+import com.research.assistant.Repositories.ResearchRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,10 @@ public class ResearchService {
     private String geminiApiKey;
 
     @Autowired
-    private ResearchRepository researchRepository;
+    private ResearchActionRepository researchActionRepository;
+
+    @Autowired
+    private ResearchRequestRepository researchRequestRepository;
 
 
     String action;
@@ -57,10 +61,13 @@ public class ResearchService {
                 .bodyToMono(String.class)
                 .block();
 
-        researchAction = researchRepository.findFirstByAction(action);
+        researchAction = researchActionRepository.findFirstByAction(action);
+
+        updateMongoDbResearchRequest(request);
+
 
         if(researchAction.isPresent()){
-            updateMongoDB(researchAction.get());
+            updateMongoDbResearchAction(researchAction.get());
         }
         else{
             return "Error in API Call: Broken Please Fix!";
@@ -118,13 +125,19 @@ public class ResearchService {
 
     }
 
-    private void updateMongoDB(ResearchAction inputResearchAction){
+    private void updateMongoDbResearchAction(ResearchAction inputResearchAction){
        inputResearchAction.setTotalCount(inputResearchAction.getTotalCount()+1);
        LocalDate today = LocalDate.now();
        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
        String formattedDate = today.format(formatter);
        inputResearchAction.setLastTimeAccessed(formattedDate);
-       researchRepository.save(inputResearchAction);
+       researchActionRepository.save(inputResearchAction);
     }
+
+    private void updateMongoDbResearchRequest(ResearchRequest inputResearchRequest){
+        researchRequestRepository.insert(inputResearchRequest);
+        researchRequestRepository.save(inputResearchRequest);
+    }
+
 
 }
