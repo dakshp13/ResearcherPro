@@ -40,6 +40,8 @@ public class ResearchServiceSuggestionsTests {
                 "topics and further reading. Format the response with " +
                 "clear heading and bullet points:\n\n";
         expectedPrompt += "This is some content for extra suggestions";
+        String action = researchService.getAction();
+        assertEquals("suggest", action);
         assertEquals(expectedPrompt, actualPrompt);
     }
 
