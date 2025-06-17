@@ -38,6 +38,8 @@ public class ResearchServiceSummarizeTests {
                 "following text in a lot of detail. If there are any fundamental concepts then explain them well. Ensure one or two paragraphs" +
                 "of well written summary. Also make sure its clear for the reader to follow along:\n\n";
         expectedPrompt += "This is some article to summarize";
+        String action = researchService.getAction();
+        assertEquals("summarize", action);
         assertEquals(expectedPrompt, actualPrompt);
     }
 
@@ -50,6 +52,8 @@ public class ResearchServiceSummarizeTests {
                 "following text. If there are any fundamental concepts then explain them in short. Ensure only a few sentences" +
                 "of well written summary. Also make sure its clear for the reader to follow along:\n\n";
         expectedPrompt += "This is some article to summarize";
+        String action = researchService.getAction();
+        assertEquals("summarize", action);
         assertEquals(expectedPrompt, actualPrompt);
     }
 

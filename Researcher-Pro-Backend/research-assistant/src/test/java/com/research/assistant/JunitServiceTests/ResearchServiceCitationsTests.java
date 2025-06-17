@@ -37,6 +37,8 @@ public class ResearchServiceCitationsTests {
         String expectedPrompt = "If " + "https://www.nationalgeographic.com/environment/article/global-warming-effects" + " looks like a valid citable link then cite it using this" +
                 "format: " + "APA Citation" + ", otherwise just state that its not a citable link. Once again here is the link:\n\n";
         expectedPrompt += "https://www.nationalgeographic.com/environment/article/global-warming-effects";
+        String action = researchService.getAction();
+        assertEquals("Citation", action);
         assertEquals(expectedPrompt, actualPrompt);
     }
 
@@ -48,6 +50,8 @@ public class ResearchServiceCitationsTests {
         String expectedPrompt = "If " + "https://www.nationalgeographic.com/environment/article/global-warming-effects" + " looks like a valid citable link then cite it using this" +
                 "format: " + "MLA Citation" + ", otherwise just state that its not a citable link. Once again here is the link:\n\n";
         expectedPrompt += "https://www.nationalgeographic.com/environment/article/global-warming-effects";
+        String action = researchService.getAction();
+        assertEquals("Citation", action);
         assertEquals(expectedPrompt, actualPrompt);
     }
 
@@ -59,6 +63,8 @@ public class ResearchServiceCitationsTests {
         String expectedPrompt = "If " + "https://www.nationalgeographic.com/environment/article/global-warming-effects" + " looks like a valid citable link then cite it using this" +
                 "format: " + "IEEE Citation" + ", otherwise just state that its not a citable link. Once again here is the link:\n\n";
         expectedPrompt += "https://www.nationalgeographic.com/environment/article/global-warming-effects";
+        String action = researchService.getAction();
+        assertEquals("Citation", action);
         assertEquals(expectedPrompt, actualPrompt);
     }
 
@@ -70,6 +76,8 @@ public class ResearchServiceCitationsTests {
         String expectedPrompt = "If " + "https://www.nationalgeographic.com/environment/article/global-warming-effects" + " looks like a valid citable link then cite it using this" +
                 "format: " + "Chicago-Style Citation" + ", otherwise just state that its not a citable link. Once again here is the link:\n\n";
         expectedPrompt += "https://www.nationalgeographic.com/environment/article/global-warming-effects";
+        String action = researchService.getAction();
+        assertEquals("Citation", action);
         assertEquals(expectedPrompt, actualPrompt);
     }
 

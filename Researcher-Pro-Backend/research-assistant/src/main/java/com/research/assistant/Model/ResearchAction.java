@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "activity-stats")
@@ -23,6 +24,14 @@ public class ResearchAction {
     private String lastTimeAccessed;
     @DocumentReference
     private List<ResearchRequest> researchRequestList;
+
+    public ResearchAction(String action, int totalCount, String lastTimeAccessed) {
+        this.action = action;
+        this.totalCount = totalCount;
+        this.lastTimeAccessed = lastTimeAccessed;
+        this.researchRequestList = new ArrayList<>();
+    }
+
 
     public void addToResearchRequestList(ResearchRequest researchRequest){
         this.researchRequestList.add(researchRequest);

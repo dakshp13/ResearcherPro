@@ -45,6 +45,10 @@ public class ResearchService {
         this.objectMapper = objectMapper;
     }
 
+    public String getAction() {
+        return action;
+    }
+
     public String processContent(ResearchRequest request){
         String prompt = buildPrompt(request);
         Map<String, Object> requestBody = Map.of(
