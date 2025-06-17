@@ -25,7 +25,7 @@ public class ResearchAction {
     @DocumentReference
     private List<ResearchRequest> researchRequestList;
 
-    public ResearchAction(String action, int totalCount, String lastTimeAccessed, List<ResearchRequest> researchRequestList) {
+    public ResearchAction(String action, int totalCount, String lastTimeAccessed) {
         this.action = action;
         this.totalCount = totalCount;
         this.lastTimeAccessed = lastTimeAccessed;
