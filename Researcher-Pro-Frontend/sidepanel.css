@@ -52,6 +52,19 @@ body {
  
 }
 
+#openStatsBtn {
+    padding: 8px 16px;
+    background-color: #dcd3f3;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#openStatsBtn:hover {
+     background-color: #a48fd4;
+}
+
 
 
 #summarizeDetailedBtn {

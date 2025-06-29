@@ -4,14 +4,77 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('notes').value = result.researchNotes;
         }
     });
-    document.getElementById('suggestionsBtn').addEventListener('click', suggest);
-    document.getElementById('summarizeDetailedBtn').addEventListener('click', summarizeDetailedText);
-    document.getElementById('summarizeBriefBtn').addEventListener('click', summarizeBriefText);
-    document.getElementById('mlaBtn').addEventListener('click', mlaCiteText);
-    document.getElementById('apaBtn').addEventListener('click', apaCiteText);
-    document.getElementById('ieeeBtn').addEventListener('click', ieeeCiteText);
-    document.getElementById('chicagoBtn').addEventListener('click', chicagoCiteText);
-    document.getElementById('saveNotesBtn').addEventListener('click', saveNotes);
+    //document.getElementById('suggestionsBtn').addEventListener('click', suggest);
+   // document.getElementById('summarizeDetailedBtn').addEventListener('click', summarizeDetailedText);
+    //document.getElementById('summarizeBriefBtn').addEventListener('click', summarizeBriefText);
+   // document.getElementById('mlaBtn').addEventListener('click', mlaCiteText);
+   // document.getElementById('apaBtn').addEventListener('click', apaCiteText);
+   // document.getElementById('ieeeBtn').addEventListener('click', ieeeCiteText);
+   // document.getElementById('chicagoBtn').addEventListener('click', chicagoCiteText);
+   // document.getElementById('saveNotesBtn').addEventListener('click', saveNotes);
+   
+   //TESTING NEW LOGIC BELOW
+    const suggestionsBtn = document.getElementById('suggestionsBtn');
+    const summarizeDetailedBtn = document.getElementById('summarizeDetailedBtn');
+    const summarizeBriefBtn = document.getElementById('summarizeBriefBtn');
+    const mlaBtn = document.getElementById('mlaBtn');
+    const apaBtn = document.getElementById('apaBtn');
+    const ieeeBtn = document.getElementById('ieeeBtn');
+    const chicagoBtn = document.getElementById('chicagoBtn');
+    const saveNotesBtn = document.getElementById('saveNotesBtn');
+    const openStatsBtn = document.getElementById("openStatsBtn");
+    const goBackBtn = document.getElementById("goBackBtn");
+
+    if (suggestionsBtn) {
+        suggestionsBtn.addEventListener('click', suggest);
+    }
+
+    if(summarizeDetailedBtn) {
+        summarizeDetailedBtn.addEventListener('click', summarizeDetailedText);
+    }
+
+    if(summarizeBriefBtn) {
+        summarizeBriefBtn.addEventListener('click', summarizeBriefText);
+    }
+
+    if(mlaBtn) {
+        mlaBtn.addEventListener('click', mlaCiteText);
+    }
+
+    if(apaBtn) {
+        apaBtn.addEventListener('click', apaCiteText);
+    }
+
+    if(ieeeBtn) {
+        ieeeBtn.addEventListener('click', ieeeCiteText);
+    }
+
+    if(chicagoBtn) {
+        chicagoBtn.addEventListener('click', chicagoCiteText);
+    }
+
+    if(saveNotesBtn) {
+        saveNotesBtn.addEventListener('click', saveNotes);
+    }
+
+    if (openStatsBtn) {
+        openStatsBtn.addEventListener("click", () => {
+        window.location.href = "stats.html";
+        });
+    }
+
+    if (goBackBtn) {
+        goBackBtn.addEventListener("click", () => {
+         window.location.href = "sidepanel.html";
+        });
+    }
+
+
+
+
+
+   //TESTING NEW LOGIC ABOVE
+
 });
 
 async function mlaCiteText(){
