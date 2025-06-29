@@ -47,3 +47,17 @@ body {
 #goBackBtn:hover {
      background-color: #595f68;
 }
+
+#getStatsBtn {
+    padding: 8px 16px;
+    background-color: #d3d3d8;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#getStatsBtn:hover {
+     background-color: #595f68;
+}
+
