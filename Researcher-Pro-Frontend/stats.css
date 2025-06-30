@@ -61,3 +61,24 @@ body {
      background-color: #595f68;
 }
 
+#results {
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+
+.result-item {
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.result-content {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
