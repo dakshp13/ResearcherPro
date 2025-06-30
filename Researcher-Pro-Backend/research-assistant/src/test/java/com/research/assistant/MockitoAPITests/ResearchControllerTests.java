@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.research.assistant.Controllers.ResearchController;
 import com.research.assistant.Model.ResearchRequest;
 import com.research.assistant.Services.ResearchService;
+import com.research.assistant.Services.StatsService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -30,6 +31,9 @@ public class ResearchControllerTests {
 
     @MockitoBean
     private ResearchService researchService;
+
+    @MockitoBean
+    private StatsService statsService;
 
 
     private final ObjectMapper objectMapper = new ObjectMapper();

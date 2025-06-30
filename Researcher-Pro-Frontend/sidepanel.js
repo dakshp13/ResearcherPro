@@ -12,6 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('ieeeBtn').addEventListener('click', ieeeCiteText);
     document.getElementById('chicagoBtn').addEventListener('click', chicagoCiteText);
     document.getElementById('saveNotesBtn').addEventListener('click', saveNotes);
+    document.getElementById("openStatsBtn").addEventListener("click", () => {
+         window.location.href = "stats.html";
+    });
+   
+   
+
 });
 
 async function mlaCiteText(){
