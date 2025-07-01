@@ -72,6 +72,10 @@ async function geminiCommunicator(operation){
             body: JSON.stringify({ content: result, operation: operation})
         });
 
+        if(response.status === 429){
+            throw new Error(`Too Many Requests, Please Try Again Later ...`);
+        }
+
         if(!response.ok){
             throw new Error(`Hold on your going to fast for me to think: Wait a bit and then try again please ...`);
         }

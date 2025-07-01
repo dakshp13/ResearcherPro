@@ -15,6 +15,10 @@ async function getStats() {
             headers: { 'Content-Type': 'application/json'},
         });
 
+        if(response.status === 429){
+            throw new Error(`Too Many Requests, Please Try Again Later ...`);
+        }
+
         if(!response.ok){
             throw new Error(`Hold on your going to fast for me to think: Wait a bit and then try again please ...`);
         }
