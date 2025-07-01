@@ -44,5 +44,19 @@
 - **Plus exactly where to find them**
 
 ---
+### New 📦 Version 1.3.0 - Usage Stats Feature 🆕🚀 ***
+
+This update introduces a new feature page that allows users to view their **usage statistics**.
+
+### 🚀 What's New
+- Added a new **Stats** page accessible from the main interface
+- Users can now view how many times they’ve used:
+  - Summarization
+  - Suggestions
+  - Citations
+- Displays the **last time each feature was accessed**
+- Backend rate limiting added for optimized performance
+
+This marks a step toward providing more personalized and data-driven experiences for users.
 
 
