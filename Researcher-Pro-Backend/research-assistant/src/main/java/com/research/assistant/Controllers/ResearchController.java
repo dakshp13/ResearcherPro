@@ -29,6 +29,10 @@ public class ResearchController {
     private final Bucket processBucket = Bucket.builder()
             .addLimit(Bandwidth.classic(10, Refill.intervally(10, Duration.ofMinutes(1))))
             .build();
+
+    private final Bucket deleteStatsBucket = Bucket.builder()
+            .addLimit(Bandwidth.classic(1, Refill.intervally(1, Duration.ofMinutes(60))))
+            .build();
     //Adding a Rate Limiter
 
     @PostMapping("/process")
@@ -48,6 +52,18 @@ public class ResearchController {
         if(getStatsBucket.tryConsume(1)) {
             String stats = statsService.getStats();
             return ResponseEntity.ok(stats);
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
+                    .body("Too many requests - please wait a minute before retrying.");
+        }
+    }
+
+    @DeleteMapping("/getstats")
+    public ResponseEntity<String> deleteStats(){
+        if(deleteStatsBucket.tryConsume(1)) {
+            statsService.deleteStats();
+            return ResponseEntity.status(HttpStatus.OK).body("Http Status is OK");
         }
         else{
             return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
