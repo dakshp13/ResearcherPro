@@ -4,6 +4,7 @@ package com.research.assistant.Services;
 import com.research.assistant.Model.ResearchAction;
 import com.research.assistant.Repositories.ResearchActionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,6 +12,12 @@ import java.util.Optional;
 
 @Service
 public class StatsService {
+
+    @Value("${gemini.api.url}")
+    private String geminiApiUrl;
+
+    @Value("${gemini.api.key}")
+    private String geminiApiKey;
 
     @Autowired
     private ResearchActionRepository researchActionRepository;
@@ -64,5 +71,53 @@ public class StatsService {
             // DO NOTHING FOR NOW
             // THIS ELSE BLOCK SHOULD NEVER BE REACHED
         }
+    }
+
+    public String getGeminiRecommendations() {
+        String prompt = buildPrompt();
+
+
+
+
+        return "";
+    }
+
+    private String buildPrompt() {
+        String result = "";
+        result += "Hello Gemini, I need you to give some reading recommendations to the user. Below I have provided " +
+                "you with some of their recent usages and reading. The elements include some readings they used for summaries, or " +
+                "even some links that they have cited. Try you best to find a ball park, and give a few article names and maybe their links " +
+                "for some suggested readings. Also if there is nothing provided below, tell user that not enough stats for recommendations\n\n";
+
+        Optional<ResearchAction> summarize = researchActionRepository.findFirstByAction("summarize");
+        Optional<ResearchAction> suggest = researchActionRepository.findFirstByAction("suggest");
+        Optional<ResearchAction> citation = researchActionRepository.findFirstByAction("Citation");
+
+        if(summarize.isPresent() && suggest.isPresent() && citation.isPresent()) {
+            int summarizeListSize = summarize.get().getResearchRequestList().size();
+            int suggestListSize = suggest.get().getResearchRequestList().size();
+            int citationListSize = citation.get().getResearchRequestList().size();
+
+            if(summarizeListSize > 0){
+                result += "1. " + summarize.get().getResearchRequestList().getLast().getContent() + "\n\n";
+            }
+            if(suggestListSize > 0){
+                result += "2. " + suggest.get().getResearchRequestList().getLast().getContent() + "\n\n";
+            }
+
+            if(citationListSize >= 3) {
+                int j = 3;
+                for (int i = citationListSize - 1; i >= citationListSize - 3; i--) {
+                    result += j + ". " + citation.get().getResearchRequestList().get(i).getContent() + "\n\n";
+                }
+            }
+
+        }
+        else {
+            // DO NOTHING
+            // SHOULD NEVER REACH THIS BLOCK
+        }
+
+        return result;
     }
 }

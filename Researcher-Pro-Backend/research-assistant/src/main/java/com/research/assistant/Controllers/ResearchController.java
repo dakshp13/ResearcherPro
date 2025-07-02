@@ -33,6 +33,11 @@ public class ResearchController {
     private final Bucket deleteStatsBucket = Bucket.builder()
             .addLimit(Bandwidth.classic(1, Refill.intervally(1, Duration.ofMinutes(60))))
             .build();
+
+    private final Bucket geminiRecommendationsBucket = Bucket.builder()
+            .addLimit(Bandwidth.classic(1, Refill.intervally(1, Duration.ofMinutes(60))))
+            .build();
+
     //Adding a Rate Limiter
 
     @PostMapping("/process")
@@ -69,6 +74,19 @@ public class ResearchController {
             return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
                     .body("Too many requests - please wait a minute before retrying.");
         }
+    }
+
+    @GetMapping("/getrecommendations")
+    public ResponseEntity<String> getGeminiRecommendations(){
+        if(geminiRecommendationsBucket.tryConsume(1)) {
+            String response = statsService.getGeminiRecommendations();
+            return ResponseEntity.ok(response);
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
+                    .body("Too many requests - please wait a minute before retrying.");
+        }
+
     }
 
 }
