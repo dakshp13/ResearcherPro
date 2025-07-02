@@ -1,0 +1,14 @@
+# Create and switch to a new branch
+git checkout -b branch-name
+
+# Push the new branch to remote
+git push -u origin branch-name
+
+# Safe delete (only if merged)
+git branch -d branch-name
+
+# Force delete (even if not merged)
+git branch -D branch-name
+
+# Push delete to github
+git push origin --delete branch-name
