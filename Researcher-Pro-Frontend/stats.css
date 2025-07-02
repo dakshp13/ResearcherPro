@@ -50,7 +50,7 @@ body {
 
 #getStatsBtn {
     padding: 8px 16px;
-    background-color: #d3d3d8;
+    background-color: #B0E0E6;
     color: black;
     font-weight: bold;
     border-radius: 4px;
@@ -58,7 +58,7 @@ body {
 }
 
 #getStatsBtn:hover {
-     background-color: #595f68;
+     background-color: #4682B4;
 }
 
 #results {
@@ -81,4 +81,70 @@ body {
 .result-content {
     margin-bottom: 10px;
     line-height: 1.5;
+}
+
+#results2 {
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+
+.result2-item {
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.result2-content {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+#geminiRecommendsBtn {
+    padding: 8px 16px;
+    background: linear-gradient(to right, #E8F0FE, #FCE8E6, #FEF7E0, #E6F4EA);
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#geminiRecommendsBtn:hover {
+     background: linear-gradient(to right, #4285F4, #EA4335, #FBBC05, #34A853);
+}
+
+#geminiRecSubText {
+    padding-bottom: 0px;
+    color: black;
+    font-style: italic;
+}
+
+#deleteBtnText {
+    padding-bottom: 0px;
+    font-weight: bolder;
+    color: crimson;
+}
+
+#deleteBtnSubText {
+    padding-bottom: 0px;
+    font-weight: bolder;
+    color: crimson;
+}
+
+#deleteBtn {
+    padding: 8px 16px;
+    background-color: crimson;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#deleteBtn:hover {
+     background-color: darkred;
 }
