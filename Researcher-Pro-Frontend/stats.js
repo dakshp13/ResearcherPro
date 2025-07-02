@@ -73,10 +73,6 @@ async function deleteData() {
             alert(`Too Many Requests, Please Try Again Later ...`);
         }
 
-        if(!response.ok){
-            alert(`Hold on your going to fast for me to think: Wait a bit and then try again please ...`);
-        }
-
         if(response.ok){
             alert('Data Deleted Successfully');
         }
