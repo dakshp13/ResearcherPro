@@ -36,27 +36,27 @@
 ---
 ---
 ---
-### New v1.1.0 Feature 🆕🚀 ***
-## Suggestions Options: *** 
+# 📦 Release v1.4.0 – Smart Recommendations & Data Refresh
 
-- **Add any text or cite and click the new option**
-- **Generation of various suggested and related readings**
-- **Plus exactly where to find them**
+## ✨ New Features
 
+### 🔍 Gemini-Powered Reading Suggestions
+- Integrated with **Gemini API** to analyze user usage stats.
+- Provides intelligent **recommended readings** based on recent activity patterns (e.g., summarizations, citations, suggestions).
+- Makes your research journey smarter and more personalized.
+
+### ♻️ Usage Stats Deletion / Refresh
+- Added ability to **delete or refresh** your usage statistics with a single click.
+- Useful for starting fresh or clearing past activity logs.
+
+## 🧪 Notes
+- Both features work seamlessly within the extended frontend UI.
+- Backend endpoints and services have been expanded to support Gemini-based logic and MongoDB interaction cleanup.
+
+## 🚀 Improvements
+- Refactored logic in `StatsService` for cleaner access and stat handling.
+  
 ---
-### New 📦 Version 1.3.0 - Usage Stats Feature 🆕🚀 ***
-
-This update introduces a new feature page that allows users to view their **usage statistics**.
-
-### 🚀 What's New
-- Added a new **Stats** page accessible from the main interface
-- Users can now view how many times they’ve used:
-  - Summarization
-  - Suggestions
-  - Citations
-- Displays the **last time each feature was accessed**
-- Backend rate limiting added for optimized performance
-
-This marks a step toward providing more personalized and data-driven experiences for users.
+🔧 Full functionality is available in the updated side panel and stats view pages.
 
 
