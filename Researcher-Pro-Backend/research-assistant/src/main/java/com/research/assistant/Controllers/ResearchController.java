@@ -23,7 +23,7 @@ public class ResearchController {
 
     //Adding a Rate Limiter
     private final Bucket getStatsBucket = Bucket.builder()
-            .addLimit(Bandwidth.classic(1, Refill.intervally(1, Duration.ofMinutes(1))))
+            .addLimit(Bandwidth.classic(10, Refill.intervally(10, Duration.ofMinutes(1))))
             .build();
 
     private final Bucket processBucket = Bucket.builder()
@@ -31,7 +31,7 @@ public class ResearchController {
             .build();
 
     private final Bucket deleteStatsBucket = Bucket.builder()
-            .addLimit(Bandwidth.classic(1, Refill.intervally(1, Duration.ofMinutes(60))))
+            .addLimit(Bandwidth.classic(10, Refill.intervally(10, Duration.ofMinutes(60))))
             .build();
 
     private final Bucket geminiRecommendationsBucket = Bucket.builder()

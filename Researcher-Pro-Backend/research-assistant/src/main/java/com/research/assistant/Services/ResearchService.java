@@ -9,6 +9,7 @@ import com.research.assistant.Repositories.ResearchActionRepository;
 import com.research.assistant.Repositories.ResearchRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -49,6 +50,7 @@ public class ResearchService {
         return action;
     }
 
+    @CacheEvict(value = "statsCache", key = "'getStats'")
     public String processContent(ResearchRequest request){
         String prompt = buildPrompt(request);
         Map<String, Object> requestBody = Map.of(
@@ -128,6 +130,7 @@ public class ResearchService {
         }
 
     }
+
 
     private void updateMongoDbResearchAction(ResearchAction inputResearchAction, ResearchRequest inputResearchRequest){
        inputResearchAction.setTotalCount(inputResearchAction.getTotalCount()+1);
