@@ -4,6 +4,7 @@ package com.research.assistant.OtherTests;
 import com.research.assistant.Model.ResearchAction;
 import com.research.assistant.Repositories.ResearchActionRepository;
 import com.research.assistant.Repositories.ResearchRequestRepository;
+import com.research.assistant.Services.StatsService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
+import org.springframework.cache.CacheManager;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
@@ -23,8 +25,10 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.cache.Cache;
 
-
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -57,6 +61,9 @@ public class RedisCacheTests {
 
     @MockitoSpyBean
     private ResearchActionRepository researchActionRepositorySpy;
+
+    @Autowired
+    private CacheManager cacheManager;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -91,6 +98,39 @@ public class RedisCacheTests {
         Mockito.verify(researchActionRepositorySpy, Mockito.times(0)).findFirstByAction("summarize");
         Mockito.verify(researchActionRepositorySpy, Mockito.times(0)).findFirstByAction("suggest");
         Mockito.verify(researchActionRepositorySpy, Mockito.times(0)).findFirstByAction("Citation");
+
+        Cache cache = cacheManager.getCache("statsCache");
+        assertNotNull(cache);
+        assertNotNull(cache.get("getStats", String.class));
+
+
+
+    }
+
+    @Test
+    void testDeleteStatsAndVerifyCache() throws Exception {
+        ResearchAction researchAction1 = new ResearchAction("summarize", 0, "06/16/2025");
+        ResearchAction researchAction2 = new ResearchAction("suggest", 0, "06/16/2025");
+        ResearchAction researchAction3 = new ResearchAction("Citation", 0, "06/16/2025");
+        researchActionRepository.save(researchAction1);
+        researchActionRepository.save(researchAction2);
+        researchActionRepository.save(researchAction3);
+
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/research/getstats"))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/research/getstats"))
+                .andExpect(status().isOk());
+
+        Cache cache = cacheManager.getCache("statsCache");
+        assertNotNull(cache);
+        assertNotNull(cache.get("getStats", String.class));
+
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api/research/getstats"))
+                .andExpect(status().isOk());
+
+        assertNull(cache.get("getStats", String.class));
 
     }
 
