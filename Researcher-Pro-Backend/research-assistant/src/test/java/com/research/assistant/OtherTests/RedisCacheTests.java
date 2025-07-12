@@ -2,6 +2,7 @@ package com.research.assistant.OtherTests;
 
 
 import com.research.assistant.Model.ResearchAction;
+import com.research.assistant.Model.ResearchRequest;
 import com.research.assistant.Repositories.ResearchActionRepository;
 import com.research.assistant.Repositories.ResearchRequestRepository;
 import com.research.assistant.Services.StatsService;
@@ -13,6 +14,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.cache.CacheManager;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
@@ -132,6 +134,38 @@ public class RedisCacheTests {
 
         assertNull(cache.get("getStats", String.class));
 
+    }
+
+    @Test
+    void testUpdateStatsAndVerifyCache() throws Exception {
+        ResearchAction researchAction1 = new ResearchAction("summarize", 0, "06/16/2025");
+        ResearchAction researchAction2 = new ResearchAction("suggest", 0, "06/16/2025");
+        ResearchAction researchAction3 = new ResearchAction("Citation", 0, "06/16/2025");
+        researchActionRepository.save(researchAction1);
+        researchActionRepository.save(researchAction2);
+        researchActionRepository.save(researchAction3);
+
+        ResearchRequest request = new ResearchRequest();
+        request.setOperation("summarize:brief");
+        request.setContent("Short summary content.");
+
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/research/getstats"))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/research/getstats"))
+                .andExpect(status().isOk());
+
+        Cache cache = cacheManager.getCache("statsCache");
+        assertNotNull(cache);
+        assertNotNull(cache.get("getStats", String.class));
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/research/process")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isOk());
+
+        assertNull(cache.get("getStats", String.class));
     }
 
 
