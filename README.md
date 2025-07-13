@@ -36,26 +36,29 @@
 ---
 ---
 ---
-# 📦 Release v1.4.0 – Smart Recommendations & Data Refresh
+# 🚀 v1.5.0 - Redis-Powered Performance Boost!
 
-## ✨ New Features
+## ✨ New Features & Improvements
 
-### 🔍 Gemini-Powered Reading Suggestions
-- Integrated with **Gemini API** to analyze user usage stats.
-- Provides intelligent **recommended readings** based on recent activity patterns (e.g., summarizations, citations, suggestions).
-- Makes your research journey smarter and more personalized.
+- ⚡ **Redis Cache Integration (via Docker)**  
+  Added a Redis caching layer for the `/api/research/getstats` endpoint to dramatically improve response time and reduce database load.
 
-### ♻️ Usage Stats Deletion / Refresh
-- Added ability to **delete or refresh** your usage statistics with a single click.
-- Useful for starting fresh or clearing past activity logs.
+- 🧪 **Docker Testcontainers for Redis**  
+  Implemented test infrastructure using Docker-based Redis to ensure isolated and consistent testing environments.
 
-## 🧪 Notes
-- Both features work seamlessly within the extended frontend UI.
-- Backend endpoints and services have been expanded to support Gemini-based logic and MongoDB interaction cleanup.
+- ⏱️ **42.6x Faster Access**  
+  Benchmarked cache access to be **42.6x faster** than direct MongoDB queries for repeated requests!
 
-## 🚀 Improvements
-- Refactored logic in `StatsService` for cleaner access and stat handling.
+- 🧠 **Smarter Backend Logic**  
+  Now uses `@Cacheable`, `@CacheEvict`, and fine-tuned cache configurations via `RedisCacheManager`.
+
+- 🔁 **Seamless Cache Refresh**  
+  When stats are updated or deleted, the cache is properly invalidated to keep everything in sync.
   
+---
+
+> 💡 This release lays the foundation for future performance optimizations and scalable caching mechanisms across more endpoints!
+
 ---
 🔧 Full functionality is available in the updated side panel and stats view pages.
 
