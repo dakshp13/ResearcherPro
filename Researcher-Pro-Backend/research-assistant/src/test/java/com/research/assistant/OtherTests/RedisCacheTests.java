@@ -84,9 +84,12 @@ public class RedisCacheTests {
         researchActionRepository.save(researchAction3);
 
 
+        long start = System.currentTimeMillis();
         mockMvc.perform(MockMvcRequestBuilders.get("/api/research/getstats"))
                 .andExpect(status().isOk());
+        long end = System.currentTimeMillis();
 
+        System.out.println("Non-Cache Access Time is: " + (end-start));
 
         Mockito.verify(researchActionRepositorySpy, Mockito.times(1)).findFirstByAction("summarize");
         Mockito.verify(researchActionRepositorySpy, Mockito.times(1)).findFirstByAction("suggest");
@@ -94,8 +97,12 @@ public class RedisCacheTests {
 
         Mockito.clearInvocations(researchActionRepositorySpy);
 
+        long start2 = System.currentTimeMillis();
         mockMvc.perform(MockMvcRequestBuilders.get("/api/research/getstats"))
                 .andExpect(status().isOk());
+        long end2 = System.currentTimeMillis();
+
+        System.out.println("Cache Access Time is: " + (end2-start2));
 
         Mockito.verify(researchActionRepositorySpy, Mockito.times(0)).findFirstByAction("summarize");
         Mockito.verify(researchActionRepositorySpy, Mockito.times(0)).findFirstByAction("suggest");
