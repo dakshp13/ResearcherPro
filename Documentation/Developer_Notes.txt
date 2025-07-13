@@ -12,3 +12,9 @@ git branch -D branch-name
 
 # Push delete to github
 git push origin --delete branch-name
+
+# Redis (Non-Docker) Commands
+brew services start redis
+brew services stop redis
+brew services restart redis
+redis-cli ping
