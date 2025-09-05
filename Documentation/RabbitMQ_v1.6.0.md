@@ -23,4 +23,4 @@ This release introduces a **new RabbitMQ queue** to improve data flow between th
 
 ---
 
-
+The GitHub for the microservice: https://github.com/dakshp13/ResearcherPro-Microservice1
