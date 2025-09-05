@@ -36,30 +36,38 @@
 ---
 ---
 ---
-# 🚀 v1.5.0 - Redis-Powered Performance Boost!
+# 🚀 Release v1.6.0  
 
-## ✨ New Features & Improvements
-
-- ⚡ **Redis Cache Integration (via Docker)**  
-  Added a Redis caching layer for the `/api/research/getstats` endpoint to dramatically improve response time and reduce database load.
-
-- 🧪 **Docker Testcontainers for Redis**  
-  Implemented test infrastructure using Docker-based Redis to ensure isolated and consistent testing environments.
-
-- ⏱️ **42.6x Faster Access**  
-  Benchmarked cache access to be **42.6x faster** than direct MongoDB queries for repeated requests!
-
-- 🧠 **Smarter Backend Logic**  
-  Now uses `@Cacheable`, `@CacheEvict`, and fine-tuned cache configurations via `RedisCacheManager`.
-
-- 🔁 **Seamless Cache Refresh**  
-  When stats are updated or deleted, the cache is properly invalidated to keep everything in sync.
-  
----
-
-> 💡 This release lays the foundation for future performance optimizations and scalable caching mechanisms across more endpoints!
+This release introduces a **new RabbitMQ queue** to improve data flow between the main application and its supporting microservice.  
 
 ---
-🔧 Full functionality is available in the updated side panel and stats view pages.
+
+## ✨ New Features  
+
+- 📨 **RabbitMQ Queue Integration**  
+  - Added a dedicated queue to capture **user request usage data**.  
+  - Data is forwarded to the microservice for later **analysis and insights**.  
+
+- 📊 **Enhanced Data Pipeline**  
+  - Improved structure for collecting, transferring, and processing usage metrics.  
+  - Provides a foundation for **analytics and monitoring capabilities** in upcoming versions.  
+
+---
+
+## 🛠️ Improvements  
+
+- Better separation of concerns between the **main app** and the **analytics microservice**.  
+- Cleaner data flow design to support **future scalability**.  
+
+---
+
+The GitHub for the microservice: https://github.com/dakshp13/ResearcherPro-Microservice1
+
+
+## Credits for Help & Useful Tutorials
+- Majority of this project was developed by me, however throughout the course of the project including to start the development many people helped
+- EmbarkX Programming: https://www.youtube.com/@EmbarkX
+- Programming Techie: https://www.youtube.com/@ProgrammingTechie
+- Daily Code Buffer: https://www.youtube.com/@DailyCodeBuffer
 
 
